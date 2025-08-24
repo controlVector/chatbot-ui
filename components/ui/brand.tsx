@@ -1,26 +1,39 @@
 "use client"
 
 import Link from "next/link"
+import Image from "next/image"
 import { FC } from "react"
-import { ChatbotUISVG } from "../icons/chatbotui-svg"
 
 interface BrandProps {
   theme?: "dark" | "light"
+  scale?: number
+  showText?: boolean
 }
 
-export const Brand: FC<BrandProps> = ({ theme = "dark" }) => {
+export const Brand: FC<BrandProps> = ({ theme = "dark", scale = 1, showText = true }) => {
   return (
     <Link
       className="flex cursor-pointer flex-col items-center hover:opacity-50"
-      href="https://www.chatbotui.com"
+      href="https://controlvector.dev"
       target="_blank"
       rel="noopener noreferrer"
     >
       <div className="mb-2">
-        <ChatbotUISVG theme={theme === "dark" ? "dark" : "light"} scale={0.3} />
+        <Image
+          src={theme === "dark" ? "/DARK_BRAND_LOGO.png" : "/LIGHT_BRAND_LOGO.png"}
+          alt="ControlVector"
+          width={300 * scale}
+          height={120 * scale}
+          className="object-contain"
+          priority
+        />
       </div>
 
-      <div className="text-4xl font-bold tracking-wide">Chatbot UI</div>
+      {showText && (
+        <div className="text-2xl font-bold tracking-wide text-center">
+          AI Infrastructure Management
+        </div>
+      )}
     </Link>
   )
 }

@@ -1,10 +1,11 @@
 {
-  "short_name": "Chatbot UI",
-  "name": "Chatbot UI",
+  "short_name": "ControlVector",
+  "name": "ControlVector - AI Infrastructure Management",
+  "description": "AI-powered infrastructure automation and management platform",
   "icons": [
     {
       "src": "/icon-192x192.png",
-      "type": "image/ico",
+      "type": "image/png",
       "sizes": "192x192"
     },
     {
@@ -21,6 +22,8 @@
   ],
   "start_url": "/",
   "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#000000"
+  "theme_color": "#2d3748",
+  "background_color": "#2d3748",
+  "scope": "/",
+  "orientation": "portrait-primary"
 }

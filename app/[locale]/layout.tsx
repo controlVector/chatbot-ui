@@ -1,4 +1,5 @@
 import { Toaster } from "@/components/ui/sonner"
+import { MatrixRain } from "@/components/ui/matrix-rain"
 import { GlobalState } from "@/components/utility/global-state"
 import { Providers } from "@/components/utility/providers"
 import TranslationsProvider from "@/components/utility/translations-provider"
@@ -12,10 +13,10 @@ import { ReactNode } from "react"
 import "./globals.css"
 
 const inter = Inter({ subsets: ["latin"] })
-const APP_NAME = "Chatbot UI"
-const APP_DEFAULT_TITLE = "Chatbot UI"
-const APP_TITLE_TEMPLATE = "%s - Chatbot UI"
-const APP_DESCRIPTION = "Chabot UI PWA!"
+const APP_NAME = "ControlVector"
+const APP_DEFAULT_TITLE = "ControlVector - AI Infrastructure Management"
+const APP_TITLE_TEMPLATE = "%s - ControlVector"
+const APP_DESCRIPTION = "AI-powered infrastructure automation platform. Deploy, manage, and scale your applications with natural language commands."
 
 interface RootLayoutProps {
   children: ReactNode
@@ -96,7 +97,8 @@ export default async function RootLayout({
             resources={resources}
           >
             <Toaster richColors position="top-center" duration={3000} />
-            <div className="bg-background text-foreground flex h-dvh flex-col items-center overflow-x-auto">
+            <div className="bg-background text-foreground flex h-dvh flex-col items-center overflow-x-auto relative">
+              <MatrixRain intensity="low" color="orange" className="opacity-10" />
               {session ? <GlobalState>{children}</GlobalState> : children}
             </div>
           </TranslationsProvider>

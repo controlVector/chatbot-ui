@@ -1,32 +1,38 @@
-# Chatbot UI
+# ControlVector Frontend
 
-The open-source AI chat app for everyone.
+AI-powered infrastructure automation and management platform.
 
-<img src="./public/readme/screenshot.png" alt="Chatbot UI" width="600">
+<img src="./public/DARK_BRAND_LOGO.png" alt="ControlVector" width="600">
 
-## Demo
+## Overview
 
-View the latest demo [here](https://x.com/mckaywrigley/status/1738273242283151777?s=20).
+ControlVector provides a modern web interface for managing cloud infrastructure through natural language. Built on Next.js and enhanced for infrastructure management, it features:
 
-## Updates
+- **AI-Powered Chat**: Natural language infrastructure commands
+- **Real-time Infrastructure Monitoring**: Live resource status and costs
+- **Multi-Cloud Support**: Manage DigitalOcean, AWS, GCP, and Azure resources
+- **Agent Integration**: Watson, Atlas, and other AI agents for infrastructure automation
+- **Cost Optimization**: Real-time cost tracking and optimization recommendations
 
-Hey everyone! I've heard your feedback and am working hard on a big update.
+## Features
 
-Things like simpler deployment, better backend compatibility, and improved mobile layouts are on their way.
+- **Infrastructure Discovery**: Automatically discover and inventory existing cloud resources
+- **Natural Language Deployment**: Deploy applications using conversational commands
+- **Real-time Cost Tracking**: Monitor infrastructure costs across providers
+- **Multi-Agent Orchestration**: Coordinate multiple AI agents for complex workflows
+- **Secure Credential Management**: Encrypted storage of cloud provider credentials
 
-Be back soon.
+## Integration
 
--- Mckay
+This frontend integrates with the ControlVector microservices architecture:
+- **Watson Service** (Port 3004): AI conversation orchestrator
+- **Atlas Service** (Port 3003): Infrastructure management agent
+- **Context Manager** (Port 3005): Secure credential and context storage
+- **Auth Service** (Port 3002): Authentication and authorization
 
-## Official Hosted Version
+## Based on Chatbot UI
 
-Use Chatbot UI without having to host it yourself!
-
-Find the official hosted version of Chatbot UI [here](https://chatbotui.com).
-
-## Sponsor
-
-If you find Chatbot UI useful, please consider [sponsoring](https://github.com/sponsors/mckaywrigley) me to support my open-source work :)
+This project extends the excellent [Chatbot UI](https://github.com/mckaywrigley/chatbot-ui) by Mckay Wrigley, adding infrastructure management capabilities while preserving the core chat functionality.
 
 ## Issues
 

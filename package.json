@@ -1,6 +1,7 @@
 {
-  "name": "chatbot-ui",
+  "name": "controlvector-ui",
   "version": "2.0.0",
+  "description": "ControlVector - AI Infrastructure Management Platform",
   "private": true,
   "scripts": {
     "chat": "supabase start && npm run db-types && npm run dev",

@@ -7,16 +7,16 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: #ccc;
+  background-color: #f97316; /* ControlVector Orange */
   border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background-color: #aaa;
+  background-color: #ea580c; /* Darker orange on hover */
 }
 
 ::-webkit-scrollbar-track:hover {
-  background-color: #f2f2f2;
+  background-color: #1a1a1a; /* Dark background */
 }
 
 ::-webkit-scrollbar-corner {
@@ -30,67 +30,71 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 0 0% 3.9%;
+    /* ControlVector Light Theme */
+    --background: 0 0% 98%;
+    --foreground: 0 0% 7%;
 
-    --muted: 0 0% 96.1%;
-    --muted-foreground: 0 0% 45.1%;
+    --muted: 0 0% 90%;
+    --muted-foreground: 0 0% 40%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 3.9%;
+    --popover-foreground: 0 0% 7%;
 
     --card: 0 0% 100%;
-    --card-foreground: 0 0% 3.9%;
+    --card-foreground: 0 0% 7%;
 
-    --border: 0 0% 89.8%;
-    --input: 0 0% 89.8%;
+    --border: 0 0% 85%;
+    --input: 0 0% 85%;
 
-    --primary: 0 0% 9%;
-    --primary-foreground: 0 0% 98%;
+    /* ControlVector Orange Primary */
+    --primary: 22 96% 50%; /* #f97316 */
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 0 0% 96.1%;
-    --secondary-foreground: 0 0% 9%;
+    --secondary: 0 0% 90%;
+    --secondary-foreground: 0 0% 7%;
 
-    --accent: 0 0% 96.1%;
-    --accent-foreground: 0 0% 9%;
+    --accent: 22 96% 50%; /* ControlVector Orange */
+    --accent-foreground: 0 0% 100%;
 
-    --destructive: 0 84.2% 60.2%;
+    --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 98%;
 
-    --ring: 0 0% 63.9%;
+    --ring: 22 96% 50%; /* ControlVector Orange */
 
     --radius: 0.5rem;
   }
 
   .dark {
-    --background: 0 0% 3.9%;
+    /* ControlVector Dark Theme - Pure Black Background */
+    --background: 0 0% 0%; /* Pure black like terminal */
     --foreground: 0 0% 98%;
 
-    --muted: 0 0% 14.9%;
-    --muted-foreground: 0 0% 63.9%;
+    --muted: 0 0% 10%; /* Very dark gray */
+    --muted-foreground: 0 0% 60%;
 
-    --popover: 0 0% 3.9%;
+    --popover: 0 0% 7%; /* Nearly black */
     --popover-foreground: 0 0% 98%;
 
-    --card: 0 0% 3.9%;
+    --card: 0 0% 7%; /* Nearly black */
     --card-foreground: 0 0% 98%;
 
-    --border: 0 0% 14.9%;
-    --input: 0 0% 14.9%;
+    --border: 0 0% 20%; /* Dark gray borders */
+    --input: 0 0% 15%; /* Dark input backgrounds */
 
-    --primary: 0 0% 98%;
-    --primary-foreground: 0 0% 9%;
+    /* ControlVector Orange Primary for dark mode */
+    --primary: 22 96% 55%; /* Slightly brighter orange for contrast */
+    --primary-foreground: 0 0% 0%;
 
-    --secondary: 0 0% 14.9%;
+    --secondary: 0 0% 15%; /* Dark gray secondary */
     --secondary-foreground: 0 0% 98%;
 
-    --accent: 0 0% 14.9%;
-    --accent-foreground: 0 0% 98%;
+    --accent: 22 96% 55%; /* ControlVector Orange */
+    --accent-foreground: 0 0% 0%;
 
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 85.7% 97.3%;
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 0 86% 97%;
 
-    --ring: 0 0% 14.9%;
+    --ring: 22 96% 55%; /* ControlVector Orange */
   }
 }
 
@@ -98,7 +102,52 @@
   * {
     @apply border-border;
   }
+  
   body {
     @apply bg-background text-foreground;
+    /* ControlVector Matrix Background */
+    background-image: 
+      radial-gradient(circle at 25% 25%, rgba(249, 115, 22, 0.03) 0%, transparent 50%),
+      radial-gradient(circle at 75% 75%, rgba(57, 255, 20, 0.02) 0%, transparent 50%);
+    background-attachment: fixed;
+  }
+  
+  /* Matrix-style grid overlay for dark mode */
+  .dark body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+      linear-gradient(rgba(57, 255, 20, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(57, 255, 20, 0.03) 1px, transparent 1px);
+    background-size: 50px 50px;
+    pointer-events: none;
+    z-index: -1;
+  }
+}
+
+/* ControlVector specific utility classes */
+@layer components {
+  .cv-glow {
+    @apply text-cv-matrix-green;
+    text-shadow: 0 0 5px currentColor, 0 0 10px currentColor, 0 0 15px currentColor;
+  }
+  
+  .cv-matrix-text {
+    @apply text-cv-matrix-green font-mono;
+    animation: glow 2s ease-in-out infinite alternate;
+  }
+  
+  .cv-orange-glow {
+    @apply text-cv-orange-500;
+    text-shadow: 0 0 10px currentColor, 0 0 20px currentColor, 0 0 30px currentColor;
+  }
+  
+  .cv-terminal {
+    @apply bg-cv-dark-900 text-cv-matrix-green font-mono border border-cv-matrix-green/30;
+    box-shadow: inset 0 0 20px rgba(57, 255, 20, 0.1);
   }
 }
